@@ -60,7 +60,8 @@ h1,h2,h3{margin:0;text-wrap:balance;letter-spacing:-.01em}
 .wordmark .wm{display:inline-flex;align-items:baseline}
 .wordmark .wm b{font-weight:700;color:var(--ink)}
 .wordmark .wm i{font-style:normal;font-weight:800;color:var(--brand-sky)}
-.tagline{font-size:12.5px;font-weight:600;color:var(--go);margin-top:-12px}
+.wordmark .logo{height:40px;width:auto;display:block;background:#fff;border-radius:8px;padding:3px 6px}
+.login .wordmark .logo{height:56px}
 
 /* Buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 16px;border-radius:var(--r-sm);font-weight:650;background:var(--surface-2);color:var(--ink);transition:background .15s,transform .08s}
@@ -591,7 +592,7 @@ function doRender() {
   const scrollY = window.scrollY;
   let html;
   const loaded = S.ready.workers && S.ready.settings;
-  if (!loaded) html = `<div class="login"><div class="stack" style="align-items:center"><div class="wordmark"><span class="mark"></span><span class="wm"><b>Natural</b><i>Net</i></span></div><div class="muted small">${t('Cargando…')}</div></div></div>`;
+  if (!loaded) html = `<div class="login"><div class="stack" style="align-items:center"><div class="wordmark"><img class="logo" src="assets/logo-naturalnet.jpg" alt="NaturalNet · Mantenimiento y limpieza ecológica"></div><div class="muted small">${t('Cargando…')}</div></div></div>`;
   else if (!Object.keys(S.data.workers).length) html = viewSetup();
   else if (!S.session || !me() || me().active === false) html = viewLogin();
   else if (me().role === 'worker' || S.view.asWorker) html = viewWorker();
@@ -675,9 +676,8 @@ function viewLogin() {
     .sort((a, b) => ({ admin: 0, supervisor: 1, worker: 2 }[a.role] - { admin: 0, supervisor: 1, worker: 2 }[b.role]) || a.name.localeCompare(b.name));
   const pinFor = w => DEMO_PINS[w.id];
   return `<div class="login"><div class="login-box">
-    <div class="row between"><div class="wordmark"><span class="mark"></span><span class="wm"><b>Natural</b><i>Net</i></span></div>
+    <div class="row between"><div class="wordmark"><img class="logo" src="assets/logo-naturalnet.jpg" alt="NaturalNet · Mantenimiento y limpieza ecológica"></div>
       <select class="in" id="lang-login" data-change="lang" style="width:auto;min-height:36px;padding:4px 8px;font-size:13px" aria-label="${t('Idioma')}">${Object.entries(LANGS).map(([k, v]) => `<option value="${k}" ${S.lang === k ? 'selected' : ''}>${v}</option>`).join('')}</select></div>
-    <div class="tagline">Mantenimiento y limpieza ecológica</div>
     <div><h1 style="font-size:28px;font-weight:800">${t('Control horario')}</h1><p class="muted" style="margin:4px 0 0">${t('Escribe tu PIN para entrar.')}</p></div>
     <div class="stack" style="gap:8px"><div class="eyebrow" style="text-align:center">${t('PIN')}</div>
       <div class="pin-dots" aria-label="PIN">${[0, 1, 2, 3].map(i => `<span class="${i < L.pin.length ? 'on' : ''}"></span>`).join('')}</div>
@@ -718,7 +718,7 @@ function viewWorker() {
   const tabs = [['home', 'home', t('Fichar')], ['history', 'list', t('Historial')], ['profile', 'user', t('Perfil')]];
   const body = v === 'history' ? wHistory() : v === 'profile' ? wProfile() : wHome();
   return `<div class="wk">
-    <div class="wk-top"><div class="wordmark"><span class="mark"></span><span class="wm"><b>Natural</b><i>Net</i></span></div><div class="grow"></div>${syncChip()}
+    <div class="wk-top"><div class="wordmark"><img class="logo" src="assets/logo-naturalnet.jpg" alt="NaturalNet · Mantenimiento y limpieza ecológica"></div><div class="grow"></div>${syncChip()}
       ${u.role !== 'worker' ? `<button class="iconbtn" data-act="to-admin" title="${t('Volver al panel')}" aria-label="${t('Volver al panel')}">${ic('grid')}</button>` : ''}
       <button class="avatar" data-act="wtab" data-v="profile" aria-label="${t('Perfil')}">${esc(initials(u.name))}</button></div>
     <main class="wk-main">${body}</main>
@@ -981,7 +981,7 @@ function viewAdmin() {
   const body = { dash: aDash, history: aHistory, reports: aReports, workers: aWorkers, centers: aCenters, notices: aNotices, settings: aSettings }[v] || aDash;
   const zoneNames = (u.zones || []).map(z => zoneName(z)).join(', ');
   return `<div class="adm">
-    <aside class="side"><div class="wordmark"><span class="mark"></span><span class="wm"><b>Natural</b><i>Net</i></span></div>
+    <aside class="side"><div class="wordmark"><img class="logo" src="assets/logo-naturalnet.jpg" alt="NaturalNet · Mantenimiento y limpieza ecológica"></div>
       ${nav.map(([k, i, l]) => `<button class="nav ${v === k ? 'on' : ''}" data-act="anav" data-v="${k}">${ic(i)}${t(l)}${k === 'dash' && alerts.length ? `<span class="badge">${alerts.length}</span>` : ''}</button>`).join('')}
       <div class="grow side-foot"></div>
       <div class="side-foot stack" style="gap:8px;padding:8px">
@@ -1522,7 +1522,7 @@ async function exportPdf() {
 
 /* ================= First-run setup (empty database) ================= */
 function viewSetup() {
-  return `<div class="login"><div class="login-box"><div class="wordmark"><span class="mark"></span><span class="wm"><b>Natural</b><i>Net</i></span></div>
+  return `<div class="login"><div class="login-box"><div class="wordmark"><img class="logo" src="assets/logo-naturalnet.jpg" alt="NaturalNet · Mantenimiento y limpieza ecológica"></div>
     <h1 style="font-size:26px;font-weight:800">${t('Primer uso')}</h1><p class="muted" style="margin:0">${t('Crea la cuenta de administración para empezar a dar de alta centros y trabajadores.')}</p>
     <label class="f">${t('Nombre de la empresa')}<input class="in" id="su-company"></label>
     <label class="f">${t('Tu nombre')}<input class="in" id="su-name"></label>

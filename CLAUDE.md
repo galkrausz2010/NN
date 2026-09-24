@@ -44,7 +44,7 @@ Tomada de https://www.naturalnet.es (empresa de mantenimiento y limpieza ecológ
 - Azul marino `#003254` (texto principal)
 - Azul cielo `#2CB9EF` ("Net" del logotipo)
 - Tipografía: **Open Sans**
-- Logotipo en la app: hoja verde + "Natural" en marino y "Net" en azul cielo
+- Logotipo oficial: `prototipo/assets/logo-naturalnet.jpg` (descargado de naturalnet.es, 300×77, fondo blanco; en la app va sobre una placa blanca)
 - Lema: "Mantenimiento y limpieza ecológica"
 
 ## Stack y comandos
@@ -69,4 +69,5 @@ Framework y comandos: _pendientes de definir._ Cuando se elijan, documentar aqu�
 CLAUDE.md                   Guía y reglas del proyecto
 PROGRESS.md                 Registro de progreso y cambios
 prototipo/fichafacil.html   Prototipo de la app (HTML + CSS + JS en un solo archivo)
+prototipo/assets/           Imágenes (logotipo oficial)
 ```
