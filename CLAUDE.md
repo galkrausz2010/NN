@@ -38,7 +38,13 @@ Aún no se ha definido el stack definitivo. Ver [PROGRESS.md](PROGRESS.md) para 
 
 ## Stack y comandos
 
-_Pendiente de definir._ Cuando se elija, documentar aquí:
+**Objetivo de infraestructura (decidido):**
+- **Vercel** para desplegar y alojar la webapp.
+- **Supabase** como backend: base de datos PostgreSQL, autenticación de usuarios, almacenamiento y (si hace falta) funciones.
+
+Toda decisión técnica nueva debe ser compatible con este despliegue (p. ej. framework que Vercel soporte bien, datos en Supabase en lugar de `localStorage`).
+
+Framework y comandos: _pendientes de definir._ Cuando se elijan, documentar aquí:
 
 - Framework / librerías
 - Cómo instalar dependencias
