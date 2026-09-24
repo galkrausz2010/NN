@@ -12,8 +12,14 @@ Guía para Claude (y cualquier colaborador) al trabajar en este repositorio.
 
 ## Estado actual
 
-Proyecto recién iniciado. Aún no se ha definido el stack tecnológico, el alcance funcional ni el diseño.
-Ver [PROGRESS.md](PROGRESS.md) para el historial y los siguientes pasos.
+Existe un **prototipo funcional en un solo archivo HTML**: [`prototipo/fichafacil.html`](prototipo/fichafacil.html) ("FichaFácil"), una app de **fichaje / control horario** para personal de limpieza que trabaja en varios centros (restaurantes, oficinas, hoteles, colegios, tiendas...).
+
+- Roles: trabajador/a (vista móvil: fichar entrada/salida, pausas, historial), supervisor/a y administración (panel con fichajes en vivo, alertas, informes, centros, trabajadores).
+- Acceso por PIN; fichaje por GPS (radio del centro) o código QR; soporte sin conexión.
+- Incluye datos de demostración (trabajadores, centros y fichajes ficticios en Barcelona).
+- Se creó como Artifact de Claude: usa `window.claude.use('db')` y `('downloads')` si existen y, si no, recurre a `localStorage`, así que también funciona abierto directamente en el navegador.
+
+Aún no se ha definido el stack definitivo. Ver [PROGRESS.md](PROGRESS.md) para el historial y los siguientes pasos.
 
 ## Reglas de trabajo (obligatorias)
 
@@ -43,6 +49,7 @@ _Pendiente de definir._ Cuando se elija, documentar aquí:
 ## Estructura del repositorio
 
 ```
-CLAUDE.md     Guía y reglas del proyecto
-PROGRESS.md   Registro de progreso y cambios
+CLAUDE.md                   Guía y reglas del proyecto
+PROGRESS.md                 Registro de progreso y cambios
+prototipo/fichafacil.html   Prototipo de la app (HTML + CSS + JS en un solo archivo)
 ```
