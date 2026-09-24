@@ -36,6 +36,17 @@ Aún no se ha definido el stack definitivo. Ver [PROGRESS.md](PROGRESS.md) para 
 - Pensada para instalarse como **PWA** (manifest + service worker) y funcionar con conexión inestable.
 - Accesibilidad básica: contraste suficiente, etiquetas en formularios, soporte de modo oscuro.
 
+## Marca NaturalNet
+
+Tomada de https://www.naturalnet.es (empresa de mantenimiento y limpieza ecológica, Barcelona).
+
+- Verde marca `#64B743` (en botones con texto blanco usar `#378226` por contraste)
+- Azul marino `#003254` (texto principal)
+- Azul cielo `#2CB9EF` ("Net" del logotipo)
+- Tipografía: **Open Sans**
+- Logotipo en la app: hoja verde + "Natural" en marino y "Net" en azul cielo
+- Lema: "Mantenimiento y limpieza ecológica"
+
 ## Stack y comandos
 
 **Objetivo de infraestructura (decidido):**
